@@ -46,6 +46,7 @@ export class TodosController {
   };
 
   public updateTodo = async (req: Request, res: Response) => {
+    console.log(`Updating todo ${ req.body } with id ${ req.params.id }`);
     const id = +req.params.id;
     const [error, updateTodoDTO] = UpdateTodoDTO.update({ ...req.body, id });
 
@@ -73,6 +74,7 @@ export class TodosController {
   };
 
   public deleteTodo = async (req: Request, res: Response) => {
+    console.log(`Deleting todo ${ req.body } with id ${ req.params.id }`);
     const id = +req.params.id;
 
     const todo = await prisma.todo.findUnique({
