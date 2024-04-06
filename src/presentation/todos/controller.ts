@@ -31,6 +31,7 @@ export class TodosController {
   };
 
   public createTodo = async (req: Request, res: Response) => {
+    console.log(`Creating todo ${ req.body }`);
     const [error, createTodoDTO] = CreateTodoDTO.create(req.body);
 
     if (error) {
